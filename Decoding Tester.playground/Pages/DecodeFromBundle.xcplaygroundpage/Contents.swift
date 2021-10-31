@@ -3,11 +3,10 @@ import Foundation
  [< Previous](@previous)           [Home](Introduction)           [Next >](@next)
  
  ## Decoding JSON from a Bundled File
- You can use this playground page to test decoding of JSON from a file in the application bundle to Codable structs.
+ You can use this playground page to test decoding of JSON to Codable structs from a file stored in the application bundle.
  
- In the **Sources** folder for this entire playground book there is an extension to Bundle that makes the process easier
- In the **Resources** folder for this single playground, you can upload your JSON file.
- &nbsp;
+ In the **Sources** folder for this entire playground book there is an extension to Bundle that makes the process easier.
+> Upload your json file to the **Resources** folder for this single playground.
 
  #### Start by entering your model below
 */

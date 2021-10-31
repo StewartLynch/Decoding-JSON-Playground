@@ -16,12 +16,9 @@
  * [Decoding from URL](DecodeFromUrl)
  &nbsp;
  
+> 1. If the instructions are displayed as raw Markup code, you can toggle to show rendered markup by selecting **Show Rendered Markup** from the **Editor** menu.
+> 2. To upload files to the **Resources** folder for the *DecodFromBundle* playground and to see the extensions in the playgrounbd book's **Sources** folder you will have to reveal the sidebar.
  
- ##### Playground Notes
- 1. If the instructions are displayed as raw Markup code, you can toogle to show rendered markup by seecting **Show Rendered Markup** from the **Editor** menu.
- 2. To upload files to the Resources folder for the DecodFromBundle playground and to see the extensions in the playgrounbd book's Sources folder you will have to reveal the sidebar.
  ![sidebar](sidebar.png)
  
- 
- [Next >](@next)
  */

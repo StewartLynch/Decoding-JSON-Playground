@@ -3,9 +3,9 @@ import SwiftUI
  [< Previous](@previous)           [Home](Introduction)           [Next >](@next)
  
  ## Decoding JSON from a URL
- You can use this playground page to test decoding of JSON from a url, using an APIService class that has two getJSON methods.
+ You can use this playground page to test decoding of JSON to Codable structs from a url, using an APIService class that has two getJSON methods.
  
- One of the methods uses async and await while the alternative uses a completion handler
+ > One of the methods uses async and await while the alternative uses a completion handler
  #### Start by entering your model below
 */
 struct User: Codable {
