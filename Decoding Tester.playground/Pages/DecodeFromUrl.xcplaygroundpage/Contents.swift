@@ -5,7 +5,7 @@ import SwiftUI
  ## Decoding JSON from a URL
  You can use this playground page to test decoding of JSON to Codable structs from a url, using an APIService class that has two getJSON methods.
  
- > One of the methods uses async and await while the alternative uses a completion handler
+ > One of the methods uses async and await while the alternative uses a completion handler.
  #### Start by entering your model below
 */
 struct User: Codable {
@@ -70,27 +70,24 @@ let apiService = APIService(urlString: "https://jsonplaceholder.typicode.com/use
  }
  ```
  */
-// Async
 Task {
-    let users:[User] = try await apiService.getJSON()
+    let users: [User] = try await apiService.getJSON()
+    FileManager.endcodeAndSave(objects: users, fileName: "Users.json")
     print(users.count)
     for user in users {
         print(user.name)
         print(user.address.city)
-        print("----------------")
+        print("------------------")
     }
 }
 
-// Completion Handler
 apiService.getJSON { (users: [User]) in
     let users = users
-    print(users.count)
-    for user in users {
-        print(user.name)
-        print(user.address.city)
-        print("----------------")
-    }
+        print(users.count)
+        for user in users {
+            print(user.name)
+            print(user.address.city)
+            print("----------------")
+        }
+
 }
-
-
-

@@ -1,11 +1,11 @@
 import Foundation
 /*:
- [< Previous](@previous)           [Home](Introduction)           [Next >](@next)
+ [< Previous](@previous)           [Home](Introduction)
  
- ## Decoding JSON from a File in Documents Directory
- You can use this playground page to test decoding of JSON to Codable structs from a file stored in the application Document Direcgtory.
+ ## Decoding JSON from a File in the Documents Directory
+ You can use this playground page to test decoding of JSON to Codable structs from a file stored in the application's Document Directory.
  
- In the **Sources** folder for this entire playground book there is an extension to FileManager that makes the process easier
+ In the **Sources** folder for this entire playground book there is an extension to FileManager that makes the process easier.
 
  > You will need to upload a file to the Playground's **document Directory**.
  
@@ -17,30 +17,42 @@ print(FileManager.docDirPath)
 /*:
  #### Start by entering your model below
 */
-struct University: Codable {
-  let alphaTwoCode: String
-  let webPages: [URL]
-  let name: String
-  let country: String
-  let domains: [String]
-  let stateProvince: String?
+struct User: Codable {
+  struct Address: Codable {
+    struct Geo: Codable {
+      let lat: String
+      let lng: String
+    }
 
-  private enum CodingKeys: String, CodingKey {
-    case alphaTwoCode = "alpha_two_code"
-    case webPages = "web_pages"
-    case name
-    case country
-    case domains
-    case stateProvince = "state-province"
+    let street: String
+    let suite: String
+    let city: String
+    let zipcode: String
+    let geo: Geo
   }
+
+  struct Company: Codable {
+    let name: String
+    let catchPhrase: String
+    let bs: String
+  }
+
+  let id: Int
+  let name: String
+  let username: String
+  let email: String
+  let address: Address
+  let phone: String
+  let website: String
+  let company: Company
 }
 /*:
  ### Decode your JSON on the next line making sure you use the correct model or array of model objects to decode as well as the correct name for the json file.
  ```
- var users = Bundle.main.decode([User].self, from: "Users.json")
+ var users = FileManager.decode([User].self, from: "Users.json")
  ```
  */
-var universities = FileManager.decode([University].self, from: "Universities.json")
+var users = FileManager.decode([User].self, from: "Users.json")
 /*:
 ### Test in the lines following
  ```
@@ -52,9 +64,9 @@ var universities = FileManager.decode([University].self, from: "Universities.jso
  }
  ```
  */
-print(universities.count)
-for university in universities.filter({$0.domains.count > 1}) {
-    print("\(university.name) has \(university.domains.count) domains")
+print(users.count)
+for user in users {
+    print(user.name)
+    print(user.address.city)
+    print("------------------")
 }
-
-
